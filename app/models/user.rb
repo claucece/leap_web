@@ -8,6 +8,7 @@ class User < CouchRest::Model::Base
   property :password_salt, String, :accessible => true
   property :contact_email, String, :accessible => true
   property :contact_email_key, String, :accessible => true
+  property :braintree_customer_id, Integer, :accessible => true
 
   property :enabled, TrueClass, :default => true
 
@@ -173,9 +174,10 @@ class User < CouchRest::Model::Base
 
   end
   
-  # def has_payment_info?
-  #  braintree_customer_id
-  # end
+  def has_payment_info?
+    braintree_customer_id
+  end
+
   protected
 
   ##
