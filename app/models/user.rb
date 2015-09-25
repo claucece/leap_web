@@ -9,6 +9,7 @@ class User < CouchRest::Model::Base
   property :contact_email, String, :accessible => true
   property :contact_email_key, String, :accessible => true
   property :braintree_customer_id, Integer, :accessible => true
+  property :subscription_id, String, :accessible => true
 
   property :enabled, TrueClass, :default => true
 
@@ -173,7 +174,7 @@ class User < CouchRest::Model::Base
     @message.save if @message
 
   end
-  
+
   def has_payment_info?
     braintree_customer_id
   end
